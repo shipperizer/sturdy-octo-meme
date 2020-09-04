@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package grpc.kafka.health.v1;
+
+option go_package = "pkg/status";
+
+message KafkaMetricRequest {
+  int64 lag = 1;
+}
+
+message KafkaMetricResponse {
+  bool accepted = 1;
+}
+
+service KafkaMetric {
+  rpc Update(KafkaMetricRequest) returns (KafkaMetricResponse);
+}
