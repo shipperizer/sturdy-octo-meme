@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta6
+kind: Config
+build:
+  artifacts:
+  - image: health-kafka-sidecar
+    sync:
+      infer:
+      - "internal/**"
+      - "pkg/**"
+      - "cmd/grpc/**"
+      - "go.mod"
+    docker:
+      buildArgs:
+        app_name: grpc

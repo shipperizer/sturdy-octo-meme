@@ -1,0 +1,10 @@
+.git
+GIT_COMMIT
+.coverage
+.coveragerc
+.gitignore
+README.md
+coverage.xml
+results.xml
+docker-compose*.yaml
+.dockerignore
