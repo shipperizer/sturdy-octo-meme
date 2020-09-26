@@ -2,13 +2,17 @@ apiVersion: skaffold/v2beta6
 kind: Config
 build:
   artifacts:
-  - image: health-kafka-sidecar
+  - image: docker.pkg.github.com/shipperizer/sturdy-octo-meme/health-kafka-sidecar
     sync:
       infer:
       - "internal/**"
       - "pkg/**"
       - "cmd/grpc/**"
       - "go.mod"
-    docker:
+    kaniko:
       buildArgs:
         app_name: grpc
+      image: gcr.io/kaniko-project/executor:debug
+  cluster:
+    dockerConfig:
+      secretName: docker-config
